@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background: #FFFFFF;
+}
+.header{
+    height: 801px;
+    width: 1440px;
+    background: url("imágenes/poke-portada1.jpg");
+    background-size: contain;
+    background-position-y: 65px;
+    background-repeat: no-repeat;
+    max-width: auto;
+    max-height: auto;
+    display: flex;
+}
+.header-img__icono{
+    position: absolute;
+}
+.header__input{
+    height: 40px;
+    width: 300px;
+    position: absolute;
+}
+.header-img__fondo{
+    width: 1440px;
+    height: 65px;
+    position: absolute;
+
+}
+/* ESTILO DEL MAIN */
+.main{
+    width: 1440px;
+    height: 689px;
+    margin-top: 0px;
+}
+.main__img-Busqueda{
+    position: absolute;
+    width: 1440px;
+    height: 92px;
+    margin-top: 0%;
+}
+.main__p-Busqueda{
+    position: absolute;
+    margin-top: 48px;
+    margin-left: 519px;
+    height: 37px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.main__div-Personaje{
+    position: absolute;
+    width: 360px;
+    height: 385px;  
+    background: #91A2A6;
+    border-radius: 12px;
+    margin-top: 204px;
+    margin-left: 102px;
+    text-align: center;
+}
+.main__div-P-Numero{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: 209px;
+    color: #FFFFFF;
+   
+}
+.main__div-P-Nombre{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: 0px;
+    color: #FFFFFF;
+    
+}
+.main__div-P-Boton:hover{
+    background-color: #B647B8;
+}
+.main__div-P-Boton{
+    margin-top: 18px;
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(90deg, #B647B8 0%, #7D6ED1 38.54%, #23ACF9 100%);
+    border-radius: 30px;
+    border: 2px;
+    padding: 5px 26px;
+    color: #FFFFFF;
+}
+
+/* ESTILO DEL FOOTER */
+.footer{
+    background-image: url("imágenes/footer.jpg");
+    background-repeat: no-repeat;
+    width: 1440px;
+    height: 126px;
+    display: inline-flex;
+    margin-bottom: 0;
+}
+.footer__img-Icono{
+    height: 64px;
+    width: 174px;
+    margin-top: 10px;
+    margin-left: 244px;
+    position: absolute;
+}
+.footer__p-CR{
+    margin-top: 96px;
+    margin-left: 244px;
+    position: absolute;
+}
+.footer__img-Personajes{
+    height: 317px;
+    width: 120px;
+    position: absolute;
+}
