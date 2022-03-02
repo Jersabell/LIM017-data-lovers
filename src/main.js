@@ -4,10 +4,8 @@ import data from './data/pokemon/pokemon.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 //console.log(filterData, data);
 const pokemonsMainDiv = document.getElementById('main__div-Characteres');
-
 // DATA VARIABLES funcion -- // pokemonNew
 const pokeData = getPokemons(data.pokemon);
-
 // funcion mostrar pokemones
 const showPokemonsDiv = (pokeData) => {
   let showAll = "";

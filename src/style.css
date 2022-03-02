@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
+
 }
 
 body{
@@ -79,7 +79,7 @@ body{
     margin: 20px;
 }
 .main__div-P-Img{
-    
+
     width: 200px;
     height: 200px;
     position: absolute;
@@ -87,7 +87,7 @@ body{
     margin-left: 80px;
 }
 .main__div-P-Numero{
-    
+
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -96,10 +96,10 @@ body{
     margin-top: 209px;
     margin-left: 132px;
     color: #FFFFFF;
-   
+
 }
 .main__div-P-Nombre{
-    
+
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -108,8 +108,8 @@ body{
     margin-top: 0px;
     margin-left:90px ;
     color: #FFFFFF;
-    
-    
+
+
 }
 .main__div-P-Boton:hover{
     background-color: #B647B8;
