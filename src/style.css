@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
+
 }
 
 body{
@@ -58,10 +58,17 @@ body{
     text-align: center;
     color: #FFFFFF;
 }
-.main__div-Personaje{
+
+.main__div-Characteres {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
     position: absolute;
     width: 360px;
-    height: 385px;  
+    height: 385px;
     background: #91A2A6;
     border-radius: 12px;
     margin-top: 204px;
@@ -76,7 +83,7 @@ body{
     line-height: 32px;
     margin-top: 209px;
     color: #FFFFFF;
-   
+
 }
 .main__div-P-Nombre{
     font-family: Roboto;
@@ -86,7 +93,7 @@ body{
     line-height: 32px;
     margin-top: 0px;
     color: #FFFFFF;
-    
+
 }
 .main__div-P-Boton:hover{
     background-color: #B647B8;

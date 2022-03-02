@@ -18,16 +18,17 @@ export const computeStats = () => {
 export const getPokemons = (data) => {
   const onePokemon = [];
   //console.log(data[0]);
-  for (let i=0; i<1; i++){
+  for (let i=0; i<3; i++){
     onePokemon.push({
       'number': data[i].num,
-      'nombre': data[i].name,
-      'imagen': data[i].img,
-      'tipo': data[i].type
+      'name': data[i].name,
+      'image': data[i].img,
+      'type': data[i].type
     });
   } //*/
   return onePokemon;
   //console.log(onePokemon[0]);
 }
+window.getPokemons = getPokemons;
 //getPokemons(pok);
 //import pok from './data/pokemon/pokemon.js'
