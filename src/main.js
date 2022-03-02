@@ -16,18 +16,5 @@ const showPokemonsDiv = (pokeData) => {
     let showEachOne =
       `<div id="pokemonCard" class="card">
         <div class="cardImg">
-          <img src= "${pokeData[i].image}" />
-        </div>
-        <div class="cardInfo">
-          <p class="main__div-P-Numero">${pokeData[i].number}</p>
-          <p class="main__div-P-Nombre">${pokeData[i].name}</p>
-          <button class="main__div-P-Boton">Ver información</button>
-        </div>
-      </div>`;
-    showAll += showEachOne;
-  }
-  return showAll;
 }
-pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData);
 // imprime la data de los pokemones
-//console.log(pokeData)

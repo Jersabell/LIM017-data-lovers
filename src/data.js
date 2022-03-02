@@ -32,3 +32,5 @@ export const getPokemons = (data) => {
 window.getPokemons = getPokemons;
 //getPokemons(pok);
 //import pok from './data/pokemon/pokemon.js'
+
+
