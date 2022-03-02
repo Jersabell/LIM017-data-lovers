@@ -17,15 +17,20 @@ body{
     background-repeat: no-repeat;
     max-width: auto;
     max-height: auto;
-    display: flex;
+    display: inline-flex;
 }
 .header-img__icono{
     position: absolute;
+    margin-top: -5px;
+    margin-left: 30px;
 }
 .header__input{
     height: 40px;
-    width: 300px;
-    position: absolute;
+    width: 400px;
+    position: relative;
+    margin-top: 7px;
+    margin-left: 1000px;
+
 }
 .header-img__fondo{
     width: 1440px;
@@ -58,34 +63,52 @@ body{
     text-align: center;
     color: #FFFFFF;
 }
-.main__div-Personaje{
+.main__div-Characteres {
+    display: inline-flex;
     position: absolute;
-    width: 360px;
-    height: 385px;  
-    background: #91A2A6;
-    border-radius: 12px;
     margin-top: 204px;
     margin-left: 102px;
+}
+.card{
+    width: 360px;
+    height: 385px;
+    background: #91A2A6;
+    border-radius: 12px;
+    display: inline-flex;
     text-align: center;
+    margin: 20px;
+}
+.main__div-P-Img{
+    
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 80px;
 }
 .main__div-P-Numero{
+    
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 32px;
     margin-top: 209px;
+    margin-left: 132px;
     color: #FFFFFF;
    
 }
 .main__div-P-Nombre{
+    
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 32px;
     margin-top: 0px;
+    margin-left:90px ;
     color: #FFFFFF;
+    
     
 }
 .main__div-P-Boton:hover{
@@ -93,6 +116,7 @@ body{
 }
 .main__div-P-Boton{
     margin-top: 18px;
+    margin-left: 80px;
     width: 200px;
     height: 50px;
     background: linear-gradient(90deg, #B647B8 0%, #7D6ED1 38.54%, #23ACF9 100%);
@@ -116,15 +140,15 @@ body{
     width: 174px;
     margin-top: 10px;
     margin-left: 244px;
-    position: absolute;
+    position: relative;
 }
 .footer__p-CR{
     margin-top: 96px;
     margin-left: 244px;
-    position: absolute;
+    position: relative;
 }
 .footer__img-Personajes{
     height: 317px;
     width: 120px;
-    position: absolute;
+    position: relative;
 }
