@@ -4,29 +4,46 @@
     <meta charset="utf-8">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css"/>
-    <link rel="icon" href="imágenes/pokemon-icono.ico">
+    <link rel="icon" href="imágenes/pokemon-icono.ico"> <!-- Para el ícono de la página web -->
+    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1"> <!-- /para el responsive -->
   </head>
   <body>
     <header class="header">
-      <img class="header-img__fondo" src="imágenes/header.jpg" alt="portada">
+      <img class="header-img__background" src="imágenes/header.jpg">
       <img class="header-img__icono" src="imágenes/header-icono.png" alt="Pokemon">
-      <input class="header__input" type="text" placeholder="Buscar por nombre ...">
+      <input class="header__input" id="inputName" type="text" placeholder="Buscar por nombre ...">
     </header>
-    <main class="main">
-      <img class="main__img-Busqueda" src="imágenes/main-1.png" alt="">
-      <p class="main__p-Busqueda">Realiza búsqueda avanzada</p>
-      <div class="main__div-Characteres" id="main__div-Characteres">
 
+    <main class="main">
+        <img class="main__img-front" src="imágenes/poke-portada1.jpg" alt="Pokemon Portada">
+
+      <img class="main__img-search" src="imágenes/main-1.png" alt=""><!--Imagen de Busqueda avanzada-->
+      <p class="main__p-search">Realiza búsqueda avanzada</p>
+      <div class="main-div__Ordenar">
+        <button class="main-div__button-ordenar" id="ordenar">Ordenar</button>
+        <div class="main-div__button-despliegue" id="desplegar" hidden="">
+          <ul>
+          <li class="list-order" id="A-Z_sort">Ascendente A-Z</li>
+          <li class="list-order" id="Z-A_sort">Descendente Z-A</li>
+          <li class="list-order" id="menor-mayor">Menor a Mayor</li>
+          <li class="list-order" id="mayor_menor">Mayor a menor</li>
+          </ul>
+        </div>
       </div>
 
+      <div class="main__div-Characteres" id="main__div-Characteres">
+        <!-- AQUI DEBE ESTAR EL DIV DEL MAIN.JS -->
+
+      </div>
+      <!-- <button class="main__button-showAll">Mostrar los pokemones</button> -->
     </main>
     <footer class="footer">
+      <img class="footer__img-background" src="imágenes/footer.jpg">
       <img class="footer__img-Icono" src="imágenes/header-icono.png" alt="">
-      <p class="footer__p-CR">©Todos los derechos reservados.</p>
+      <p class="footer__p-CopyR">©Todos los derechos reservados.</p>
       <p>Síguenos en nuestras redes sociales:</p>
-      <img clas="footer__img-Personajes" src="imágenes/footer-personajes.png" alt="">
+      <img clas="footer__img-Characteres" src="imágenes/footer-personajes.png" alt="">
     </footer>
-    <div id="root"></div>
     <script src="main.js" type="module"></script>
     <script src="data/pokemon/pokemon.js" type="module"></script>
   </body>

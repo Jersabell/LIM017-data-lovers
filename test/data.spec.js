@@ -1,36 +1,50 @@
-import { procesar, filterData, sortData, computeStats} from '../src/data.js';
+import { getPokemons, filterData, sortNameAZ, typeWeaknessSort, filterProperties,computeStats} from '../src/data.js';
 
-describe('procesar', () => {
-  it('is a function', () => {
-    expect(typeof procesar).toBe('function');
+describe('getPokemons', () => {
+  it('debería ser una función', () => {
+    expect(typeof getPokemons).toBe('function');
   });
 
-  it('returns `procesar`', () => {
-    expect(procesar()).toBe('procesar');
-  });
+  // it('returns `getPokemons`', () => {
+  //   expect(getPokemons()).toBe('getPokemons');
+  // });
 });
 
 describe('filterData', () => {
-  it('is a function', () => {
+  it('debería ser una función', () => {
     expect(typeof filterData).toBe('function');
   });
 
-  it('returns `filterData`', () => {
-    expect(filterData()).toBe('filterData');
-  });
+  // it('returns `filterData`', () => {
+  //   expect(filterData()).toBe('filterData');
+  // });
 });
 
 
-describe('sortData', () => {
-  it('is a function', () => {
-    expect(typeof sortData).toBe('function');
+describe('sortNameAZ', () => {
+  it('debería ser una función', () => {
+    expect(typeof sortNameAZ).toBe('function');
   });
 
-  it('returns `sortData`', () => {
-    expect(sortData()).toBe('sortData');
+  // it('returns `sortNameAZ`', () => {
+  //   expect(sortNameAZ()).toBe('sortNameAZ');
+  // });
+});
+
+describe('typeWeaknessSort', () =>{
+  it('debería ser una función', () => {
+    expect(typeof typeWeaknessSort).toBe('function')
   });
 });
+
+describe('filterProperties', () =>{
+  it('debería ser una función', () => {
+    expect(typeof filterProperties). toBe('function')
+  })
+})
 
 describe('computeStats', () => {
+  it('debería ser una función', () => {
   expect(computeStats()).toBe('function');
+})
 });

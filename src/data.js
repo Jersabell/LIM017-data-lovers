@@ -1,36 +1,52 @@
-export const procesar = () => {
-  return 'procesar';
-};
+//------------ FUNCION OBTENER LA DATA DE POKEMONES -----------------------------------------------------------
+export const getPokemons = (data) => {
+  const onePokemon = [];
+  for (let i=0; i<data.length; i++){
+    onePokemon.push({
+      'number': data[i].num,
+      'name': data[i].name.toUpperCase(),
+      'image': data[i].img,
+      'type': data[i].type,
+      'weakness': data[i].weaknesses
+    });
+  }
+  //console.log(onePokemon[frecuency]);
+  return onePokemon;
+}
 
-export const filterData = (data, condition) => {
-  return 'filterData';
-};
+//----------------- FUNCION PARA BUSCAR POR NOMBRE-------------------------------------------------------------
+export const filterData = (pokeData, busqueda) => {
+  return pokeData.filter(poke => poke.name.startsWith(busqueda));
+}
+
 // sortBy, nos dice con respecto a cuál de los campos de la data se quiere ordenar.
 // sortOrder, indica si se quiere ordenar de manera ascendente o descendente.
-export const sortData = (data, sortBy, sortOrder) => {
-  return 'sortData';
+export const sortNameAZ = (pokeData) => {
+  pokeData.sort((poke1, poke2) => poke1.name.localeCompare(poke2.name))
+  return pokeData;
 };
+// getting all types an weaknesses
+export const typeWeaknessSort = (pokeData, propiedad) => {
+  let array = [], num = 0;
+  for (let i = 0; i < pokeData.length; i++){
+    for (let j = 0; j < pokeData[i][propiedad].length; j++){
+      array[num] = pokeData[i][propiedad][j];// ;  array.push(pokeData[i][propiedad][i]);
+      num = num + 1;
+    }
+  }
+  const newArray = [new (array)]
+  return newArray;
+}
+
+// FILTER BY TYPES AND WEAKNESSES
+export const filterProperties = (pokeData, property, oneProperty) => {
+  return pokeData.filter(objeto => objeto[property].indexOf(oneProperty) > -1)
+}
+
 // compute o calcular, nos permitirá hacer cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada.
 export const computeStats = () => {
   return 'computeStats';
 };
-
-export const getPokemons = (data) => {
-  const onePokemon = [];
-  //console.log(data[0]);
-  for (let i=0; i<3; i++){
-    onePokemon.push({
-      'number': data[i].num,
-      'name': data[i].name,
-      'image': data[i].img,
-      'type': data[i].type
-    });
-  } //*/
-  return onePokemon;
-  //console.log(onePokemon[0]);
-}
-window.getPokemons = getPokemons;
-//getPokemons(pok);
 //import pok from './data/pokemon/pokemon.js'
 
 
