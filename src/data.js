@@ -7,7 +7,9 @@ export const getPokemons = (data) => {
       'name': data[i].name.toUpperCase(),
       'image': data[i].img,
       'type': data[i].type,
-      'weakness': data[i].weaknesses
+      'weakness': data[i].weaknesses,
+      'resistant': data[i].resistant,
+      'egg': data[i].egg
     });
   }
   //console.log(onePokemon[frecuency]);
@@ -34,7 +36,7 @@ export const typeWeaknessSort = (pokeData, propiedad) => {
       num = num + 1;
     }
   }
-  const newArray = [new (array)]
+  const newArray = [new Set (array)]
   return newArray;
 }
 

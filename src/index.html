@@ -15,10 +15,28 @@
     </header>
 
     <main class="main">
-        <img class="main__img-front" src="imágenes/poke-portada1.jpg" alt="Pokemon Portada">
+      <img class="main__img-front" src="imágenes/poke-portada1.jpg" alt="Pokemon Portada">
 
-      <img class="main__img-search" src="imágenes/main-1.png" alt=""><!--Imagen de Busqueda avanzada-->
-      <p class="main__p-search">Realiza búsqueda avanzada</p>
+      
+      <!-- BUSQUEDA AVANZADA -->
+      <div class="main__searchAvanced">
+        <div class="main__searchAvanced__Options" id= "desplegabledeBusquedaAvanzada" hidden="">
+          
+            <button class="options-div__button" id="type">Tipo</button>
+            <button class="options-div__button" id="debilidad">Debilidad</button> 
+            <button class="options-div__button" id="resistencia">Resistencia</button>
+            <button class="options-div__button" id="egg">Huevo</button>
+            <button class="options-div__button" id="altura">Altura</button>
+            <button class="options-div__button" id="peso">Peso</button>
+          
+        </div>
+        <div class="main__searchAvanced__Main">
+          <p class="main__searchAvanced-Button" id="searchAvancedButton">Realiza búsqueda avanzada</p>
+          <p class="main__searchAvanced-Button-oculto" hidden="" id="ocultarbusqueda">Ocultar búsqueda avanzada</p>
+          <img class="main__img-search" src="imágenes/main-1.png" alt=""><!--Imagen de Busqueda avanzada-->
+        </div>
+      </div>
+      <!-- ORDENAR POR -->
       <div class="main-div__Ordenar">
         <button class="main-div__button-ordenar" id="ordenar">Ordenar</button>
         <div class="main-div__button-despliegue" id="desplegar" hidden="">
@@ -41,7 +59,7 @@
       <img class="footer__img-background" src="imágenes/footer.jpg">
       <img class="footer__img-Icono" src="imágenes/header-icono.png" alt="">
       <p class="footer__p-CopyR">©Todos los derechos reservados.</p>
-      <p>Síguenos en nuestras redes sociales:</p>
+      <p class="footer__p-Social">Síguenos en nuestras redes sociales:</p>
       <img clas="footer__img-Characteres" src="imágenes/footer-personajes.png" alt="">
     </footer>
     <script src="main.js" type="module"></script>
