@@ -29,6 +29,12 @@
     position: absolute;
     align-self: flex-end;
     margin-right: 50px;
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+
   }
   
   .header-img__background {

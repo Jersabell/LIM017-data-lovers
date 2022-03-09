@@ -6,26 +6,68 @@ const pokemonsMainDiv = document.getElementById('main__div-Characteres');
 // DATA VARIABLES funcion -- // pokemonNew
 const pokeData = getPokemons(data.pokemon);
 const pokeData1 = getPokemons(data.pokemon);
+const pokeData2 = getPokemons(data.pokemon).reverse();
+
 // funcion mostrar pokemones
 const showPokemonsDiv = (pokeData) => {
   let showAll = "";
   for (let i = 0; i < pokeData.length; i++){
     let showEachOne =
-      `<div id="pokemonCard1" class="card">
-          <div class="card-div__Img">
-            <img class="card__Img"src= "${pokeData[i].image}"/>
-          </div>
-          <div class="cardInfo">
-            <p class="cardInfo__Number">N° ${pokeData[i].number}</p>
-            <button class="cardInfo__Boton" id="clNombre">${pokeData[i].name}</button>
-          </div>
-        </div>`;
+    `<div class="card">
+    <div class="frontCard">
+      <div class="card-div__Img">
+        <img class="card__Img" src= "${pokeData[i].image}"/>
+      </div>
+      <div class="cardInfo">
+        <p class="cardInfo__Number">${pokeData[i].number}</p>
+        <button class="cardInfo__Boton">${pokeData[i].name}</button>
+      </div>
+    </div>
+
+    <div class="backCard" id= "${pokeData[i].number}">
+      <div class="card-div__Img">
+        <img class="card__Img"src= "${pokeData[i].image}"/>
+      </div>
+      <div class="cardInfo">
+        <p class="cardInfo__Number">HOLI</p>
+        <button class="cardInfo__Boton">${pokeData[i].name}</button>
+      </div>
+    </div>
+    </div>`;
+
     showAll += showEachOne;
   }
   return showAll;
 }
 
 pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData);
+
+// ------------------- mostrar la parte de atras del card  -------------------------- HELP -------
+const frontCard = document.querySelectorAll(".frontCard");
+const backCard = document.querySelectorAll(".backCard");
+
+// backCard.forEach(item1 => {
+//   item1.setAttribute('id', ${pokeData[i].number});
+// })
+
+frontCard.forEach(item => {
+  item.addEventListener('click', event => {
+    item.style.display = 'none';
+    const pValue = event.target.nodeName;
+    //const idx = frontCard.indexOf(item);
+    console.log('HOLIII');
+    console.log(pValue);
+    console.log(item);
+    console.log(item.target(p));
+
+    backCard.forEach(itemBack => {
+      //if(id del Back == el numero del pokemon)
+    itemBack.style.display = 'flex';
+    })
+
+  })
+})
+
 
 
 // ------------------- buscar por NOMBRE --------------------------
@@ -59,7 +101,7 @@ botton_ZA.addEventListener("click",()=>{
   const nameSorted = (sortNameAZ(pokeData)).reverse();
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameSorted);
 })
-// ....................... SORT ASCENDENT ......................................
+//....................... SORT ASCENDENT ......................................
 const ascendent = document.getElementById("menor-mayor");
 ascendent.addEventListener("click", () => {
   desplegableBTN.setAttribute("hidden", true);
@@ -70,9 +112,9 @@ ascendent.addEventListener("click", () => {
 const descendentBTN = document.getElementById("mayor_menor");
 descendentBTN.addEventListener("click", () => {
   desplegableBTN.setAttribute("hidden", true);
-  const descendent = pokeData1.reverse();
-  pokemonsMainDiv.innerHTML = showPokemonsDiv(descendent);
+  pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData2);
 })
+
 
 // --------------------------/
 // BOTON: BUSQUEDA AVANZADA /............................................................

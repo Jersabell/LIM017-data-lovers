@@ -9,7 +9,11 @@ export const getPokemons = (data) => {
       'type': data[i].type,
       'weakness': data[i].weaknesses,
       'resistant': data[i].resistant,
-      'egg': data[i].egg
+      'egg': data[i].egg,
+      'height': data[i].height,
+      'weight': data[i].weight,
+      'candy': data[i].candy,
+      'candyCount': data[i].candy_count
     });
   }
   //console.log(onePokemon[frecuency]);
