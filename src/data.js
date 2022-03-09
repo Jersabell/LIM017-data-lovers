@@ -36,9 +36,23 @@ export const typeWeaknessSort = (pokeData, propiedad) => {
       num = num + 1;
     }
   }
-  const newArray = [new Set (array)]
-  return newArray;
+  const resultado=array.filter((item, index)=>{
+    return array.indexOf(item)===index;
+
+  })
+  return resultado;
 }
+// getting eggs
+export const eggSort = (pokeData, propiedad) => {
+  let array = [];
+  for (let i = 0; i < pokeData.length; i++){
+    array.push(pokeData[i][propiedad])}
+  
+    const resultado=array.filter((item, index)=>{
+      return array.indexOf(item)===index});
+
+  return resultado
+  }
 
 // FILTER BY TYPES AND WEAKNESSES
 export const filterProperties = (pokeData, property, oneProperty) => {

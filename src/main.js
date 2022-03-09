@@ -1,4 +1,4 @@
-import { getPokemons, filterData, sortNameAZ, typeWeaknessSort} from './data.js';
+import { getPokemons, filterData, sortNameAZ, typeWeaknessSort, eggSort, filterProperties} from './data.js';
 
 import data from './data/pokemon/pokemon.js';
 
@@ -12,40 +12,22 @@ const showPokemonsDiv = (pokeData) => {
   for (let i = 0; i < pokeData.length; i++){
     let showEachOne =
       `<div id="pokemonCard1" class="card">
-        <div class="card-div__Img">
-          <img class="card__Img"src= "${pokeData[i].image}"/>
-        </div>
-        <div class="cardInfo">
-          <p class="cardInfo__Number">N° ${pokeData[i].number}</p>
-          <button class="cardInfo__Boton">${pokeData[i].name}</button>
-        </div>
-      </div>`;
-
-      // <div id="pokemonCard2" class="card">
-      //   <div class="card-div__Img">
-      //     <img class="card__Img"src= "${pokeData[i].image}"/>
-      //   </div>
-      //   <div class="cardInfo">
-      //     <!-- <p class="cardInfo__Number">N° ${pokeData[i].number}</p>  -->
-      //     <button class="cardInfo__Boton">${pokeData[i].name}</button>
-      //   </div>
-      // </div>
-
+          <div class="card-div__Img">
+            <img class="card__Img"src= "${pokeData[i].image}"/>
+          </div>
+          <div class="cardInfo">
+            <p class="cardInfo__Number">N° ${pokeData[i].number}</p>
+            <button class="cardInfo__Boton" id="clNombre">${pokeData[i].name}</button>
+          </div>
+        </div>`;
     showAll += showEachOne;
   }
   return showAll;
 }
+
 pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData);
 
-// ------------------- mostrar la parte de atras del card  --------------------------HELPPPPPP
-// const card_class = document.getElementById("pokemonCard1");
-// card_class.addEventListener("click", () => {
-//   console.log("HOLAAAA");
-//   const frontCard = document.getElementById("pokemonCard1");
-//   const backCard = document.getElementById("pokemonCard2");
-//   frontCard.style.display = 'none';
-//   backCard.style.display = 'block';
-// })
+
 // ------------------- buscar por NOMBRE --------------------------
 const inputName = document.getElementById("inputName");
 
@@ -95,38 +77,58 @@ descendentBTN.addEventListener("click", () => {
 // --------------------------/
 // BOTON: BUSQUEDA AVANZADA /............................................................
 // ------------------------/
-const searchAvancedButton =document.getElementById("searchAvancedButton");
-const searchAvancedButtonOcultar= document.getElementById("ocultarbusqueda");
-const desplegabledeBusquedaAvanzada= document.getElementById("desplegabledeBusquedaAvanzada");
-const optionByType= document.getElementById("type");
-const optionByDebilidad= document.getElementById("debilidad");
-const optionByResistencia= document.getElementById("resistencia");
-// mostrar despliegue
-searchAvancedButton.addEventListener("click", ()=>{
-  desplegabledeBusquedaAvanzada.removeAttribute("hidden");
-  searchAvancedButton.setAttribute("hidden", true);
-  searchAvancedButtonOcultar.removeAttribute("hidden")
-})
-// ocultar despliegue
-searchAvancedButtonOcultar.addEventListener("click", ()=>{
-  desplegabledeBusquedaAvanzada.setAttribute("hidden", true);
-  searchAvancedButton.removeAttribute("hidden");
-  searchAvancedButtonOcultar.setAttribute("hidden", true)
-})
-// mostrar opcion de filtrar por tipos
-optionByType.addEventListener("click", ()=>{
-  const typeSort = typeWeaknessSort(pokeData, "type");
-    console.log(typeSort)
-    })
-// mostrar opcion de filtrar por debilidad
-optionByDebilidad.addEventListener("click", ()=>{
-  const weaknessSort = typeWeaknessSort(pokeData, "weakness")
-  console.log(weaknessSort)})
-// mostrar opcion de filtrar por resistencia
-optionByResistencia.addEventListener("click", ()=>{
-  const resistantSort= typeWeaknessSort(pokeData, "resistant")
-  console.log(resistantSort);
-})
+// por tipo
+const byTypeButton= document.getElementById("typeButton")
+const byTypeOptions= document.getElementById("typeOptions");
+const typeSort= typeWeaknessSort(pokeData, "type") 
+console.log(typeSort)
+
+  let allTypes =[];
+  for (let i = 0; i < typeSort.length; i++){
+    let eachOne =
+      `<option id="typeOptions__id">${typeSort[i]}</option>`;
+      allTypes+= eachOne;
+  }
+  byTypeOptions.innerHTML= allTypes;
+// por debilidad
+const byWeaknessButton= document.getElementById("weaknessButton")
+const byWeaknessOptions= document.getElementById("weaknessOptions");
+const weaknessSort= typeWeaknessSort(pokeData, "weakness");
+console.log(weaknessSort);
+  let allWeakness =[];
+    for (let i = 0; i < weaknessSort.length; i++){
+      let eachOne =
+        `<option id="weaknessOptions__id">${weaknessSort[i]}</option>`;
+      allWeakness+= eachOne;
+    }
+byWeaknessOptions.innerHTML= allWeakness;
+// por resistencia
+const byResistantButton= document.getElementById("resistantButton");
+const byResistantOptions=document.getElementById("resistantOptions");
+const resistantSort= typeWeaknessSort(pokeData, "resistant");
+console.log(resistantSort);
+  let allResistants =[];
+    for (let i = 0; i < resistantSort.length; i++){
+      let eachOne =
+        `<option id="weaknessOptions__id">${resistantSort[i]}</option>`;
+        allResistants+= eachOne;
+    }
+byResistantOptions.innerHTML= allResistants;
+// por huevo
+const byEggButton= document.getElementById("eggButton");
+const byEggOptions=document.getElementById("eggOptions");
+const eggsSort = eggSort(pokeData, "egg")
+console.log(eggsSort)
+  let allEggs =[];
+      for (let i = 0; i < eggsSort.length; i++){
+        let eachOne =
+          `<option id="weaknessOptions__id">${eggsSort[i]}</option>`;
+          allEggs+= eachOne;
+      }
+  byEggOptions.innerHTML= allEggs;
+
+
+
 
 
 
@@ -140,3 +142,4 @@ optionByResistencia.addEventListener("click", ()=>{
 // console.log(weaknessSort);
 
 // ....................... FILTER TYPES AND WEAKNESSES ....................................
+console.log(filterProperties(pokeData, "type", "values"))

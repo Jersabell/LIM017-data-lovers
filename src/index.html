@@ -5,6 +5,7 @@
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="icon" href="imágenes/pokemon-icono.ico"> <!-- Para el ícono de la página web -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1"> <!-- /para el responsive -->
   </head>
   <body>
@@ -17,28 +18,35 @@
     <main class="main">
       <img class="main__img-front" src="imágenes/poke-portada1.jpg" alt="Pokemon Portada">
 
-      
       <!-- BUSQUEDA AVANZADA -->
       <div class="main__searchAvanced">
-        <div class="main__searchAvanced__Options" id= "desplegabledeBusquedaAvanzada" hidden="">
-          
-            <button class="options-div__button" id="type">Tipo</button>
-            <button class="options-div__button" id="debilidad">Debilidad</button> 
-            <button class="options-div__button" id="resistencia">Resistencia</button>
-            <button class="options-div__button" id="egg">Huevo</button>
-            <button class="options-div__button" id="altura">Altura</button>
-            <button class="options-div__button" id="peso">Peso</button>
-          
+        <div class="OpcionesdeBusqueda">
+            <div>
+            <button id="typeButton">Tipo</button>
+            <select name="" id="typeOptions"></select>
+            </div>
+            <div>
+            <button id="weaknessButton">Debilidad</button>
+            <select name="" id="weaknessOptions"></select>
+            </div>
+            <div>
+            <button id="resistantButton">Resistencia</button>
+            <select id="resistantOptions"></select>
+            </div>
+            <div>
+            <button id="eggButton">Huevos</button>
+            <select id="eggOptions"></select>
+            </div>       
         </div>
-        <div class="main__searchAvanced__Main">
-          <p class="main__searchAvanced-Button" id="searchAvancedButton">Realiza búsqueda avanzada</p>
+        <div class="main__searchAvanced__Main" >
+          <p class="main__searchAvanced-Button" id="searchAvancedButton">Realizar búsqueda avanzada <i class="fa-solid fa-circle-chevron-down"></i></p>
           <p class="main__searchAvanced-Button-oculto" hidden="" id="ocultarbusqueda">Ocultar búsqueda avanzada</p>
           <img class="main__img-search" src="imágenes/main-1.png" alt=""><!--Imagen de Busqueda avanzada-->
         </div>
       </div>
       <!-- ORDENAR POR -->
       <div class="main-div__Ordenar">
-        <button class="main-div__button-ordenar" id="ordenar">Ordenar</button>
+        <button class="main-div__button-ordenar" id="ordenar">Ordenar  <i class="fa-solid fa-circle-chevron-down" id="iconsmall"></i></button>
         <div class="main-div__button-despliegue" id="desplegar" hidden="">
           <ul>
           <li class="list-order" id="A-Z_sort">Ascendente A-Z</li>
@@ -59,10 +67,57 @@
       <img class="footer__img-background" src="imágenes/footer.jpg">
       <img class="footer__img-Icono" src="imágenes/header-icono.png" alt="">
       <p class="footer__p-CopyR">©Todos los derechos reservados.</p>
-      <p class="footer__p-Social">Síguenos en nuestras redes sociales:</p>
-      <img clas="footer__img-Characteres" src="imágenes/footer-personajes.png" alt="">
+      <p class="footer__p-Social">Síguenos en nuestras redes sociales:<br>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </p>
+      <img clas="footer__img-Characteres" src="imágenes/footer-personajes.png" alt="characteres">
     </footer>
     <script src="main.js" type="module"></script>
     <script src="data/pokemon/pokemon.js" type="module"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+<!-- <button class="options-div__button" id="type">Tipo</button>
+            <button class="options-div__button" id="debilidad">Debilidad</button> 
+            <button class="options-div__button" id="resistencia">Resistencia</button>
+            <button class="options-div__button" id="egg">Huevo</button>
+            <button class="options-div__button" id="altura">Altura</button>
+            <button class="options-div__button" id="peso">Peso</button> -->
+
+
+            <!-- <ul class="main__searchAvanced__Options-ul">
+              <li class="main__searchAvanced__Options-ul-li"><button class="options-div__button" id="type">Tipo</button></li>
+                <ul class="optionList" id="listType">
+                  hola
+                </ul>
+              <li class="main__searchAvanced__Options-ul-li"><button class="options-div__button" id="debilidad">Debilidad</button></li>
+                <ul class="optionList" id="listDebilidad">
+                </ul>
+              <li class="main__searchAvanced__Options-ul-li"><button class="options-div__button" id="resistencia">Resistencia</button></li>
+                <ul class="optionList" id="listResistencia">
+                </ul>
+              <li class="main__searchAvanced__Options-ul-li"><button class="options-div__button" id="egg">Huevo</button></li>
+                <ul class="optionList" id="listEgg">
+                </ul>
+            </ul> -->
+            <!-- <button class="options-div__button" id="altura">Altura</button>
+            <button class="options-div__button" id="peso">Peso</button> -->
+
+
+
+             <!-- <div class="main__searchAvanced__OptionsMore" hidden="" id="optionMore">
+          <div id="listType"></div>
+          <div id="listDebilidad"></div>
+          <div id="listResistencia"></div>
+          <div id="listEgg"></div>       
+        </div> -->

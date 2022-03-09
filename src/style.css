@@ -36,7 +36,10 @@
     height: 65px;
     object-fit: cover;
   }
-  
+  /* Estilo del icono */
+  .fa-solid{
+    width: 1px;
+  }
   /* ESTILO DEL MAIN */
   .main {
     width: 100%;
@@ -46,13 +49,13 @@
     flex-direction: column;
     align-items: center;
   }
-  
   .main__img-front {
     margin-top: 65px;
     width: 100%;
     height: 689px;
     object-fit: cover;
   }
+
   /* BUSQUEDA AVANZADA */
   .main__searchAvanced{
     text-align: center;
@@ -60,8 +63,42 @@
     height: auto;
     display: flex;
     align-items: center;
-    flex-direction: column;    
+    flex-direction: column; 
+      
   }
+  .OpcionesdeBusqueda{
+    width: 100%;
+    height: auto;
+    background-color: #1B588F; 
+    display: inline-flex;
+    justify-content: center;
+  }
+  .OpcionesdeBusqueda div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:40px;
+    width: 25%;
+    height: 100%;
+  }
+  .OpcionesdeBusqueda div button{
+    margin: 20px;
+    width: 50%;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+  }
+  .OpcionesdeBusqueda div select{
+    width: 50%;
+    height: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .typeOptions__id{
+    background-color: #ffffff57;
+  }
+
   .main__searchAvanced__Main{
     display: flex;
     justify-content: center;
@@ -97,36 +134,17 @@
     cursor: pointer;
     z-index: 1;
   }
-  .main__searchAvanced__Options{
-    width: 100%;
-    height: 100px;
-    background-color: #1B588F;
-    transition: max-height .5s ease-out;
-    overflow: hidden;
-    
-  }
-  .options-div__button{
-    width: 8%;
-    height: 25px;
-    border-radius: 5px;
-    border:none;
-    cursor: pointer;
-    margin-top: 40px;
-    margin-left: 4%;
-  }
-  .options-div__button:hover{
-    background-color: #23ACF9;
-  }
+  
   /* ORDENAR : para el boton desplegable */
   .main-div__Ordenar {
     width: 30%;
     height: auto;
     text-align: center;
     align-self: flex-start;
-    margin-left: 50px;
+    margin-left: 2%;
     margin-top: 130px;
+    
   }
-  
   .main-div__button-ordenar {
     width: 100%;
     background-color: #1B588F;
@@ -147,8 +165,6 @@
   }
   .list-order:hover {
     cursor: pointer;
-  }
-  .list-order:hover {
     background: rgba(0, 0, 0, 0.2);
   }
   
@@ -158,13 +174,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
   }
-  #pokemonCard1 {
-    cursor: pointer;
-  }
-  /* #pokemonCard2 {
-    display: none;
-  } */
+  
   .card {
     width: 290px;
     height: 320px;
@@ -177,17 +189,16 @@
     padding: 16px 0;
     cursor: pointer;
   }
-  
   .card-div__Img {
     width: 250px;
     height: 250px;
+    text-align: center;
   }
-  
   .card__Img {
     width: 230px;
     height: 230px;
+   
   }
-  
   .cardInfo__Number {
     text-align: center;
     font-family: Roboto;
@@ -197,11 +208,9 @@
     line-height: 32px;
     color: #FFFFFF;
   }
-  
   .cardInfo__Boton:hover {
     border: 20px #7e0a0a;
   }
-  
   .cardInfo__Boton {
     width: 290px;
     height: 53px;
@@ -213,36 +222,17 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: 800;
-    font-size: 36px;
+    font-size: 30px;
     line-height: 40px;
     color: #FFFFFF;
   }
-  
-  /* .main__button-showAll {
-    width: 350px;
-    height: 60px;
-    background: linear-gradient(90deg, #1B588F 0%, rgba(187, 60, 167, 0.81) 54.17%, #23ACF9 100%);
-    border-radius: 30px;
-    border: none;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
-    color: #FFFFFF;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  } */
-  
+    
   /* ESTILO DEL FOOTER */
   .footer {
     width: 100%;
     height: 128px;
     display: flex;
-    margin: 0 auto;
-    flex-direction: row ;
-    align-items: center;
-    
+    justify-content: center;    
   }
   
   .footer__img-background {
@@ -259,9 +249,8 @@
     position: absolute;
     z-index: 1;
     margin-top: 25px;
-    align-self: flex-start;
+    left: 10%;
   }
-  
   .footer__p-CopyR {
     font-family: Roboto;
     font-style: normal;
@@ -269,8 +258,9 @@
     font-size: small;
     line-height: 20px;
     color: #FFFFFF;
+    position: absolute;
     margin-top: 100px;
-    justify-content: center;
+    left: 10%;
   }
   .footer__p-Social{
     font-family: Roboto;
@@ -280,26 +270,76 @@
     line-height: 20px;
     color: #FFFFFF;
     margin-top: 20px;
-    justify-content: center;
+    left: 30%;
+    position: absolute;
   }
   .footer__img-Characteres {
-    height: 317px;
+    height: 50px;
     width: 120px;
-    align-self: flex-end;
     position: absolute;
-    z-index: 1;
-    
+    margin-top: 0%;
+    left: 80%;
   }
+ 
   
   
   /* MEDIA QUERIES */
   @media screen and (min-width: 780px) and (max-width:1024px){
     /* ejecuta tal cosa */
-  
   }
   
-  @media screen and (min-width: 480px) and (max-width:780px){
+  @media screen and (min-width: 360px) and (max-width:780px){
+    .main__img-front {
+      margin-top: 65px;
+      width: 100%;
+      object-fit: fill;
+      
+      
+    }
+    .footer__img-Characteres {
+      display: none;}
+  
+  
   }
     
-  @media screen and (max-width:480px){}
+  @media screen and (max-width:360px){
+    .header {
+      width: 100%;
+      height: 20%;
+      position: fixed;
+      background-color: #7D6ED1;
+    }
     
+    .header-img__icono {
+     width: 50%;
+     align-self: center;
+     
+    
+     
+    }
+    
+    .header__input {
+      
+      width: 80%;
+      margin-top: 18%;
+      align-self: center;
+      
+      
+      
+    }
+    
+    .header-img__background {
+      display: none;
+    }
+
+
+    .main__img-front {
+      display: none;
+  }
+  .main__searchAvanced{
+    display: none;
+  }
+  .footer__img-Characteres {
+    display: none;}
+}
+  
