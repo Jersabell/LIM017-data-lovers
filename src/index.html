@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
+    <title>Data Lovers - Pokemones</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="icon" href="imágenes/pokemon-icono.ico"> <!-- Para el ícono de la página web -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100&display=swap" rel="stylesheet">
     <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1"> <!-- /para el responsive -->
   </head>
   <body>
@@ -17,7 +18,6 @@
 
     <main class="main">
       <img class="main__img-front" src="imágenes/poke-portada1.jpg" alt="Pokemon Portada">
-
       <!-- BUSQUEDA AVANZADA -->
       <div class="main__searchAvanced">
         <div class="OpcionesdeBusqueda">
@@ -36,7 +36,7 @@
             <div>
             <button id="eggButton">Huevos</button>
             <select id="eggOptions"></select>
-            </div>       
+            </div>
         </div>
         <div class="main__searchAvanced__Main" >
           <p class="main__searchAvanced-Button" id="searchAvancedButton">Realizar búsqueda avanzada <i class="fa-solid fa-circle-chevron-down"></i></p>
@@ -49,20 +49,19 @@
         <button class="main-div__button-ordenar" id="ordenar">Ordenar  <i class="fa-solid fa-circle-chevron-down" id="iconsmall"></i></button>
         <div class="main-div__button-despliegue" id="desplegar" hidden="">
           <ul>
-          <li class="list-order" id="A-Z_sort">Ascendente A-Z</li>
-          <li class="list-order" id="Z-A_sort">Descendente Z-A</li>
-          <li class="list-order" id="menor-mayor">Menor a Mayor</li>
-          <li class="list-order" id="mayor_menor">Mayor a menor</li>
+            <li class="list-order" id="A-Z_sort">Ascendente A-Z</li>
+            <li class="list-order" id="Z-A_sort">Descendente Z-A</li>
+            <li class="list-order" id="menor-mayor">Menor a Mayor</li>
+            <li class="list-order" id="mayor_menor">Mayor a menor</li>
           </ul>
         </div>
       </div>
-
+        <!-- VISTA DE LOS POKEMONES -->
       <div class="main__div-Characteres" id="main__div-Characteres">
         <!-- AQUI DEBE ESTAR EL DIV DEL MAIN.JS -->
-
       </div>
-      <!-- <button class="main__button-showAll">Mostrar los pokemones</button> -->
     </main>
+
     <footer class="footer">
       <img class="footer__img-background" src="imágenes/footer.jpg">
       <img class="footer__img-Icono" src="imágenes/header-icono.png" alt="">
@@ -73,22 +72,17 @@
         <i class="fa-brands fa-github"></i>
         <i class="fa-brands fa-youtube"></i>
       </p>
-      <img clas="footer__img-Characteres" src="imágenes/footer-personajes.png" alt="characteres">
+      <div>
+        <img clas="footer__img-Characteres" src="imágenes/footer-personajes.png" alt="characteres">
+      </div>
     </footer>
     <script src="main.js" type="module"></script>
     <script src="data/pokemon/pokemon.js" type="module"></script>
   </body>
 </html>
 
-
-
-
-
-
-
-
 <!-- <button class="options-div__button" id="type">Tipo</button>
-            <button class="options-div__button" id="debilidad">Debilidad</button> 
+            <button class="options-div__button" id="debilidad">Debilidad</button>
             <button class="options-div__button" id="resistencia">Resistencia</button>
             <button class="options-div__button" id="egg">Huevo</button>
             <button class="options-div__button" id="altura">Altura</button>
@@ -119,5 +113,5 @@
           <div id="listType"></div>
           <div id="listDebilidad"></div>
           <div id="listResistencia"></div>
-          <div id="listEgg"></div>       
+          <div id="listEgg"></div>
         </div> -->

@@ -1,4 +1,4 @@
-//------------ FUNCION OBTENER LA DATA DE POKEMONES -----------------------------------------------------------
+//------------ FUNCION OBTENER LA DATA DE POKEMONES --------------------
 export const getPokemons = (data) => {
   const onePokemon = [];
   for (let i=0; i<data.length; i++){
@@ -16,17 +16,13 @@ export const getPokemons = (data) => {
       'candyCount': data[i].candy_count
     });
   }
-  //console.log(onePokemon[frecuency]);
   return onePokemon;
 }
-
-//----------------- FUNCION PARA BUSCAR POR NOMBRE-------------------------------------------------------------
+//----------------- FUNCION PARA BUSCAR POR NOMBRE--------------------------------
 export const filterData = (pokeData, busqueda) => {
   return pokeData.filter(poke => poke.name.startsWith(busqueda));
 }
 
-// sortBy, nos dice con respecto a cuál de los campos de la data se quiere ordenar.
-// sortOrder, indica si se quiere ordenar de manera ascendente o descendente.
 export const sortNameAZ = (pokeData) => {
   pokeData.sort((poke1, poke2) => poke1.name.localeCompare(poke2.name))
   return pokeData;
@@ -41,8 +37,7 @@ export const typeWeaknessSort = (pokeData, propiedad) => {
     }
   }
   const resultado=array.filter((item, index)=>{
-    return array.indexOf(item)===index;
-
+  return array.indexOf(item)===index;
   })
   return resultado;
 }
@@ -51,7 +46,6 @@ export const eggSort = (pokeData, propiedad) => {
   let array = [];
   for (let i = 0; i < pokeData.length; i++){
     array.push(pokeData[i][propiedad])}
-  
     const resultado=array.filter((item, index)=>{
       return array.indexOf(item)===index});
 
@@ -62,11 +56,8 @@ export const eggSort = (pokeData, propiedad) => {
 export const filterProperties = (pokeData, property, oneProperty) => {
   return pokeData.filter(objeto => objeto[property].indexOf(oneProperty) > -1)
 }
-
 // compute o calcular, nos permitirá hacer cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada.
 export const computeStats = () => {
   return 'computeStats';
 };
 //import pok from './data/pokemon/pokemon.js'
-
-

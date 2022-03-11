@@ -1,9 +1,7 @@
-import { getPokemons, filterData, sortNameAZ, typeWeaknessSort, eggSort, filterProperties} from './data.js';
-
+import {getPokemons, filterData, sortNameAZ, typeWeaknessSort, eggSort} from './data.js';
 import data from './data/pokemon/pokemon.js';
-
 const pokemonsMainDiv = document.getElementById('main__div-Characteres');
-// DATA VARIABLES funcion -- // pokemonNew
+// DATA VARIABLES funcion -- // pokemonNew, filterProperties
 const pokeData = getPokemons(data.pokemon);
 const pokeData1 = getPokemons(data.pokemon);
 const pokeData2 = getPokemons(data.pokemon).reverse();
@@ -14,7 +12,7 @@ const showPokemonsDiv = (pokeData) => {
   for (let i = 0; i < pokeData.length; i++){
     let showEachOne =
     `<div class="card">
-    <div class="frontCard">
+    <div class="frontCard" name="${pokeData[i].number}">
       <div class="card-div__Img">
         <img class="card__Img" src= "${pokeData[i].image}"/>
       </div>
@@ -23,7 +21,6 @@ const showPokemonsDiv = (pokeData) => {
         <button class="cardInfo__Boton">${pokeData[i].name}</button>
       </div>
     </div>
-
     <div class="backCard" id= "${pokeData[i].number}">
       <div class="card-div__Img">
         <img class="card__Img"src= "${pokeData[i].image}"/>
@@ -39,44 +36,14 @@ const showPokemonsDiv = (pokeData) => {
   }
   return showAll;
 }
-
 pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData);
-
-// ------------------- mostrar la parte de atras del card  -------------------------- HELP -------
-const frontCard = document.querySelectorAll(".frontCard");
-const backCard = document.querySelectorAll(".backCard");
-
-// backCard.forEach(item1 => {
-//   item1.setAttribute('id', ${pokeData[i].number});
-// })
-
-frontCard.forEach(item => {
-  item.addEventListener('click', event => {
-    item.style.display = 'none';
-    const pValue = event.target.nodeName;
-    //const idx = frontCard.indexOf(item);
-    console.log('HOLIII');
-    console.log(pValue);
-    console.log(item);
-    console.log(item.target(p));
-
-    backCard.forEach(itemBack => {
-      //if(id del Back == el numero del pokemon)
-    itemBack.style.display = 'flex';
-    })
-
-  })
-})
-
-
-
-// ------------------- buscar por NOMBRE --------------------------
+// ------------------- LOOK FOR NAME --------------------------
 const inputName = document.getElementById("inputName");
 
 inputName.addEventListener('input', event => {
   const nameFiltered = filterData(pokeData, event.target.value.toUpperCase());
-
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameFiltered);
+  showBackCard();
 });
 
 // --------------------------/
@@ -86,13 +53,15 @@ const desplegableBTN = document.getElementById("desplegar");
 const botonOrdenar = document.getElementById("ordenar");
 botonOrdenar.addEventListener("click", ()=>{
   desplegableBTN.removeAttribute("hidden");
+  showBackCard();
 })
 // ....................... SORT FROM A TO Z ......................................
 const botton_AZ = document.getElementById("A-Z_sort");
 botton_AZ.addEventListener("click",()=>{
-  desplegableBTN.setAttribute("hidden", true)
+  desplegableBTN.setAttribute("hidden", true);
   const nameSorted = sortNameAZ(pokeData);
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameSorted);
+  showBackCard();
 })
 // ....................... SORT FROM Z TO A ......................................
 const botton_ZA = document.getElementById("Z-A_sort");
@@ -100,12 +69,14 @@ botton_ZA.addEventListener("click",()=>{
   desplegableBTN.setAttribute("hidden", true)
   const nameSorted = (sortNameAZ(pokeData)).reverse();
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameSorted);
+  showBackCard();
 })
 //....................... SORT ASCENDENT ......................................
 const ascendent = document.getElementById("menor-mayor");
 ascendent.addEventListener("click", () => {
   desplegableBTN.setAttribute("hidden", true);
   pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData1);
+  showBackCard();
 })
 
 // ....................... SORT DESCENDENT ......................................
@@ -113,6 +84,7 @@ const descendentBTN = document.getElementById("mayor_menor");
 descendentBTN.addEventListener("click", () => {
   desplegableBTN.setAttribute("hidden", true);
   pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData2);
+  showBackCard();
 })
 
 
@@ -122,13 +94,12 @@ descendentBTN.addEventListener("click", () => {
 // por tipo
 const byTypeButton= document.getElementById("typeButton")
 const byTypeOptions= document.getElementById("typeOptions");
-const typeSort= typeWeaknessSort(pokeData, "type") 
+const typeSort= typeWeaknessSort(pokeData, "type")
 console.log(typeSort)
-
   let allTypes =[];
   for (let i = 0; i < typeSort.length; i++){
     let eachOne =
-      `<option id="typeOptions__id">${typeSort[i]}</option>`;
+      `<option class="typeOptions__id" id="typeOptions__id">${typeSort[i]}</option>`;
       allTypes+= eachOne;
   }
   byTypeOptions.innerHTML= allTypes;
@@ -169,19 +140,38 @@ console.log(eggsSort)
       }
   byEggOptions.innerHTML= allEggs;
 
-
-
-
-
-
-
 // ------------------------- TIPOS Y DEBILIDADES ------------------------------
-
-
-
 // const weaknessSort = typeWeaknessSort(pokeData, "weakness");
 // console.log(typeSort);
 // console.log(weaknessSort);
 
 // ....................... FILTER TYPES AND WEAKNESSES ....................................
-console.log(filterProperties(pokeData, "type", "values"))
+//console.log(filterProperties(pokeData, "type", "values"))
+
+
+// ------------------- SHOW BACKCARD  --------------------------
+function showBackCard() {
+
+const card = document.querySelectorAll(".card");
+
+card.forEach(item =>
+{
+  const frontCard = item.firstElementChild;
+  const backCard = item.lastElementChild;
+
+  frontCard.addEventListener('click', () =>
+  {
+    frontCard.style.display = 'none';
+    backCard.style.display = 'flex';
+    console.log('HOLA BACK');
+  });
+
+  backCard.addEventListener('click', () =>
+  {
+    backCard.style.display = 'none';
+    frontCard.style.display = 'flex';
+    console.log('HOLA FRONT');
+  });
+});
+}
+showBackCard();
