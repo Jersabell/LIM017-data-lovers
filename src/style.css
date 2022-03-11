@@ -76,9 +76,10 @@
   background-color: #1B588F;
   display: inline-flex;
   justify-content: center;
+
 }
 
-.OpcionesdeBusqueda div {
+.OpcionesdeBusqueda__div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -87,25 +88,30 @@
   height: 100%;
 }
 
-.OpcionesdeBusqueda div button {
-  width: 50%;
-  height: 40px;
-  background-color: #ffffff2a;
+.OpcionesdeBusqueda__div__button {
+  width: auto;
+  height: auto;
+  background-color: #ffffff00;
   border-radius: 12px;
   border: none;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 2%;
 }
 
-.OpcionesdeBusqueda div select {
-  width: 50%;
+.OpcionesdeBusqueda__div__select {
+  width: 65%;
   height: 40px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 12px;
   text-align: center;
-  margin: 5px;
+  margin: 1px;
   font-size: 16px;
+  font-weight: 600;
+  color: rgb(32, 32, 32);
 }
+
 
 .main__searchAvanced__Main {
   display: flex;
@@ -144,11 +150,18 @@
   position: absolute;
   cursor: pointer;
   z-index: 1;
+  
+ 
+}
+.fa-solid{
+  
+  margin-top: auto;
+  margin-left: 2px;
 }
 
   /* MAIN: ORDENAR POR */
   .main-div__Ordenar {
-    width: 30%;
+    width: 25%;
     height: auto;
     text-align: center;
     align-self: flex-start;
@@ -172,6 +185,13 @@
     transition: max-height .5s ease-out;
     max-height: 80%;
     overflow: hidden;
+    margin-top: 2px;
+  }
+  .list-order{
+    font-size: 17px;
+    font-weight: 700;
+    color: rgb(22, 20, 20);
+    padding: 1px;
   }
   .list-order:hover {
     cursor: pointer;
@@ -184,6 +204,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 2%;
   }
   .card{
     width: 290px;
