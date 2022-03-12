@@ -76,7 +76,7 @@
   background-color: #1B588F;
   display: inline-flex;
   justify-content: center;
-
+  /* display: none; */
 }
 
 .OpcionesdeBusqueda__div {
@@ -150,11 +150,11 @@
   position: absolute;
   cursor: pointer;
   z-index: 1;
-  
- 
+
+
 }
 .fa-solid{
-  
+
   margin-top: auto;
   margin-left: 2px;
 }

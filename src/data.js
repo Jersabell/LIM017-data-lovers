@@ -10,8 +10,8 @@ export const getPokemons = (data) => {
       'weakness': data[i].weaknesses,
       'resistant': data[i].resistant,
       'egg': data[i].egg,
-      'height': data[i].height,
-      'weight': data[i].weight,
+      'height': data[i].size.height,
+      'weight': data[i].size.weight,
       'candy': data[i].candy,
       'candyCount': data[i].candy_count
     });
@@ -22,18 +22,18 @@ export const getPokemons = (data) => {
 export const filterData = (pokeData, busqueda) => {
   return pokeData.filter(poke => poke.name.startsWith(busqueda));
 }
-
+//----------------- FUNCION PARA ORDENAR DE A-Z --------------------------------
 export const sortNameAZ = (pokeData) => {
   pokeData.sort((poke1, poke2) => poke1.name.localeCompare(poke2.name))
   return pokeData;
 };
-// getting all types an weaknesses
-export const typeWeaknessSort = (pokeData, propiedad) => {
+//----FUNCION PARA OBTENER LA LISTA DE PROPIEDADES, (EJM: TYPO: GRASS, POISON, ROCK ICE, ETC
+export const gettingProperties = (pokeData, propiedad) => {
   let array = [], num = 0;
   for (let i = 0; i < pokeData.length; i++){
     for (let j = 0; j < pokeData[i][propiedad].length; j++){
-      array[num] = pokeData[i][propiedad][j];// ;  array.push(pokeData[i][propiedad][i]);
-      num = num + 1;
+      array[num] = pokeData[i][propiedad][j];//array.push(pokeData[i][propiedad][i]);
+      num += 1;
     }
   }
   const resultado=array.filter((item, index)=>{
@@ -42,7 +42,7 @@ export const typeWeaknessSort = (pokeData, propiedad) => {
   return resultado;
 }
 // getting eggs
-export const eggSort = (pokeData, propiedad) => {
+export const gettingEgg = (pokeData, propiedad) => {
   let array = [];
   for (let i = 0; i < pokeData.length; i++){
     array.push(pokeData[i][propiedad])}
@@ -52,7 +52,7 @@ export const eggSort = (pokeData, propiedad) => {
   return resultado
   }
 
-// FILTER BY TYPES AND WEAKNESSES
+// FILTRA POKEMONES QUE TENGA UNA DETERMINADA PROPIEDAD
 export const filterProperties = (pokeData, property, oneProperty) => {
   return pokeData.filter(objeto => objeto[property].indexOf(oneProperty) > -1)
 }

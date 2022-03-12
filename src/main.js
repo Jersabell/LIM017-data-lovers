@@ -1,4 +1,4 @@
-import {getPokemons, filterData, sortNameAZ, typeWeaknessSort, eggSort, filterProperties} from './data.js';
+import {getPokemons, filterData, sortNameAZ, gettingProperties, gettingEgg, filterProperties} from './data.js';
 import data from './data/pokemon/pokemon.js';
 const pokemonsMainDiv = document.getElementById('main__div-Characteres');
 // DATA VARIABLES funcion -- // pokemonNew, filterProperties
@@ -27,6 +27,8 @@ const showPokemonsDiv = (pokeData) => {
         <p class="cardInfo__Number">Weakness: ${pokeData[i].weakness}</p>
         <p class="cardInfo__Number">Resistant: ${pokeData[i].resistant}</p>
         <p class="cardInfo__Number">Egg: ${pokeData[i].egg}</p>
+        <p class="cardInfo__Number">Height: ${pokeData[i].height}</p>
+        <p class="cardInfo__Number">Weight: ${pokeData[i].weight}</p>
       </div>
       <div class="cardInfo">
         <p class="cardInfo__Number">HOLI</p>
@@ -96,7 +98,6 @@ descendentBTN.addEventListener("click", () => {
   showBackCard();
 })
 
-
 //---------------------------/
 // BOTON: BUSQUEDA AVANZADA /............................................................
 // ------------------------/
@@ -117,10 +118,10 @@ ocultarbusqueda.addEventListener("click", ()=>{
 
 
 // opciones por tipo
-const byTypeButton= document.getElementById("typeButton")
+// const byTypeButton= document.getElementById("typeButton")
 const byTypeOptions= document.getElementById("typeOptions");
-const typeSort= typeWeaknessSort(pokeData, "type")
-const toAll= (typeSort, byTypeOptions)=>{
+const typeSort= gettingProperties(pokeData, "type")
+const showProperties= (typeSort, byTypeOptions)=>{
     let allTypes =['<option class="options__id" disabled="disabled" selected="selected">-- Seleccione --</option>',];
     for (let i = 0; i < typeSort.length; i++){
       let eachOne =
@@ -129,21 +130,21 @@ const toAll= (typeSort, byTypeOptions)=>{
       }
     return byTypeOptions.innerHTML= allTypes;
 }
-toAll(typeSort, byTypeOptions);
+showProperties(typeSort, byTypeOptions);
 //escoger y fitrar por tipo
 byTypeOptions.addEventListener("change", (event)=>{
     const selectedOption= event.target.value;
     console.log(`ejecutando por tipo ${event.target.value}...`);
     const allOptionBy= filterProperties(pokeData, "type", selectedOption);
     pokemonsMainDiv.innerHTML =showPokemonsDiv(allOptionBy);
-        })
+})
 
 // opciones por debilidad
 const byWeaknessButton= document.getElementById("weaknessButton")
 const byWeaknessOptions= document.getElementById("weaknessOptions");
-const weaknessSort= typeWeaknessSort(pokeData, "weakness");
+const weaknessSort= gettingProperties(pokeData, "weakness");
 console.log(weaknessSort);
-toAll(weaknessSort, byWeaknessOptions);
+showProperties(weaknessSort, byWeaknessOptions);
 //escoger y fitrar por debilidad
 byWeaknessOptions.addEventListener("change", (event)=>{
   const selectedOption= event.target.value;
@@ -155,9 +156,9 @@ byWeaknessOptions.addEventListener("change", (event)=>{
 // opciones por resistencia
 const byResistantButton= document.getElementById("resistantButton");
 const byResistantOptions=document.getElementById("resistantOptions");
-const resistantSort= typeWeaknessSort(pokeData, "resistant");
+const resistantSort= gettingProperties(pokeData, "resistant");
 console.log(resistantSort);
-toAll(resistantSort, byResistantOptions);
+showProperties(resistantSort, byResistantOptions);
 //escoger y fitrar por resistencia
 byResistantOptions.addEventListener("change", (event)=>{
   const selectedOption= event.target.value;
@@ -169,9 +170,9 @@ byResistantOptions.addEventListener("change", (event)=>{
 // opiones por huevo
 const byEggButton= document.getElementById("eggButton");
 const byEggOptions=document.getElementById("eggOptions");
-const eggsSort = eggSort(pokeData, "egg")
+const eggsSort = gettingEgg(pokeData, "egg")
 console.log(eggsSort)
-toAll(eggsSort, byEggOptions);
+showProperties(eggsSort, byEggOptions);
 //escoger y fitrar por resistencia
 byEggOptions.addEventListener("change", (event)=>{
   const selectedOption= event.target.value;
@@ -194,14 +195,12 @@ card.forEach(item =>
   {
     frontCard.style.display = 'none';
     backCard.style.display = 'flex';
-    console.log('HOLA BACK');
   });
 
   backCard.addEventListener('click', () =>
   {
     backCard.style.display = 'none';
     frontCard.style.display = 'flex';
-    console.log('HOLA FRONT');
   });
 });
 }
