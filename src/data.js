@@ -13,11 +13,22 @@ export const getPokemons = (data) => {
       'height': data[i].size.height,
       'weight': data[i].size.weight,
       'candy': data[i].candy,
-      'candyCount': data[i].candy_count
+      'candyCount': data[i].candy_count,
+      'generation' :data[i].generation.name.toUpperCase(),
     });
   }
   return onePokemon;
 }
+// FUNCION PARA LA INFORMACION DEL BACKCARD
+export function crearVariosParrafos(datos){
+  let almacenar=[]
+  for(let i=0;i<datos.length;i++){
+    const uno=`<p class="etiquetadelBack">${datos[i]}</p>`;
+    almacenar += uno
+  }
+  return almacenar
+}
+
 //----------------- FUNCION PARA BUSCAR POR NOMBRE--------------------------------
 export const filterData = (pokeData, busqueda) => {
   return pokeData.filter(poke => poke.name.startsWith(busqueda));

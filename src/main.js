@@ -1,4 +1,4 @@
-import {getPokemons, filterData, sortNameAZ, gettingProperties, gettingEgg, filterProperties} from './data.js';
+import {getPokemons, filterData, sortNameAZ, gettingProperties, gettingEgg, filterProperties, crearVariosParrafos} from './data.js';
 import data from './data/pokemon/pokemon.js';
 const pokemonsMainDiv = document.getElementById('main__div-Characteres');
 // DATA VARIABLES funcion -- // pokemonNew, filterProperties
@@ -18,20 +18,27 @@ const showPokemonsDiv = (pokeData) => {
       </div>
       <div class="cardInfo">
         <p class="cardInfo__Number">${pokeData[i].number}</p>
+      </div>
+      <div class="card__boton">
         <button class="cardInfo__Boton">${pokeData[i].name}</button>
       </div>
     </div>
     <div class="backCard" id= "${pokeData[i].number}">
-      <div class="card-div__Img">
-        <p class="cardInfo__Number">Type: ${pokeData[i].type}</p>
-        <p class="cardInfo__Number">Weakness: ${pokeData[i].weakness}</p>
-        <p class="cardInfo__Number">Resistant: ${pokeData[i].resistant}</p>
-        <p class="cardInfo__Number">Egg: ${pokeData[i].egg}</p>
-        <p class="cardInfo__Number">Height: ${pokeData[i].height}</p>
-        <p class="cardInfo__Number">Weight: ${pokeData[i].weight}</p>
+      <div class="cardInfo__back">
+        <p class="cardInfo__back__generation">GENERATION: ${pokeData[i].generation}</p>
+        <table class="tabla">
+        <tr><td><p class="cardInfo__back__type estiloparraf">Type ${crearVariosParrafos(pokeData[i].type)}</p></td></tr>
+        <tr><td><p class="cardInfo__back__weakness estiloparraf">Weakness ${crearVariosParrafos(pokeData[i].weakness)}</p></td></tr>
+        <tr><td><p class="cardInfo__back__resistant estiloparraf">Resistant ${crearVariosParrafos(pokeData[i].resistant)}</p></td></tr>
+        </table>
+        <table class="tabla2">
+        <tr>
+        <td><p class="cardInfo__back__egg estiloparraf">Egg</p></td>
+        <td><p class="cardInfo__back__egg estiloparraf etiquetadelBack">${pokeData[i].egg}</p></td>
+        </tr>
+        </table>
       </div>
-      <div class="cardInfo">
-        <p class="cardInfo__Number">HOLI</p>
+      <div class="card__boton">
         <button class="cardInfo__Boton">${pokeData[i].name}</button>
       </div>
     </div>
@@ -42,7 +49,7 @@ const showPokemonsDiv = (pokeData) => {
   return showAll;
 }
 pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData);
-
+showBackCard();
 //-------------------------------------------------------------/
 //-------------------- LOOK FOR NAME -------------------------/
 //-----------------------------------------------------------/
@@ -97,90 +104,48 @@ descendentBTN.addEventListener("click", () => {
   pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData2);
   showBackCard();
 })
-
-//---------------------------/
-// BOTON: BUSQUEDA AVANZADA /............................................................
-// ------------------------/
-const opcionesdeBusqueda= document.getElementById("OpcionesdeBusqueda");
-const searchAvancedButton= document.getElementById("searchAvancedButton");
-const ocultarbusqueda=document.getElementById("ocultarbusqueda")
-searchAvancedButton.addEventListener("click", ()=>{
-  searchAvancedButton.style.display= "none";
-  ocultarbusqueda.style.display="flex";
-  opcionesdeBusqueda.style.display="inline-flex";
-})
-ocultarbusqueda.addEventListener("click", ()=>{
-  searchAvancedButton.style.display= "flex";
-  ocultarbusqueda.style.display="none";
-  opcionesdeBusqueda.style.display="none";
-})
-
-
-
-// opciones por tipo
-// const byTypeButton= document.getElementById("typeButton")
-const byTypeOptions= document.getElementById("typeOptions");
-const typeSort= gettingProperties(pokeData, "type")
-const showProperties= (typeSort, byTypeOptions)=>{
-    let allTypes =['<option class="options__id" disabled="disabled" selected="selected">-- Seleccione --</option>',];
-    for (let i = 0; i < typeSort.length; i++){
+//....................... BUSQUEDA AVANZADA  ......................................
+const showProperties = (propertyList_li, property_ul)=>{
+  let allPropertyList = '';
+  //console.log(property_ul);
+  const name = property_ul.className;
+  //console.log(name);
+    for (let i = 0; i < propertyList_li.length; i++){
       let eachOne =
-          `<option class="options__id" value="${typeSort[i]}">${typeSort[i]}</option>`;
-          allTypes+= eachOne;
+          `<li><a class='bottonFilter' id='${propertyList_li[i]}' name='${name}'>${propertyList_li[i]}</a></li>`;
+          allPropertyList += eachOne;
       }
-    return byTypeOptions.innerHTML= allTypes;
+    return property_ul.innerHTML= allPropertyList;
 }
-showProperties(typeSort, byTypeOptions);
-//escoger y fitrar por tipo
-byTypeOptions.addEventListener("change", (event)=>{
-    const selectedOption= event.target.value;
-    console.log(`ejecutando por tipo ${event.target.value}...`);
-    const allOptionBy= filterProperties(pokeData, "type", selectedOption);
-    pokemonsMainDiv.innerHTML =showPokemonsDiv(allOptionBy);
-})
+const typeList_ul= document.getElementById("typeList_ul");
+const weaknessList_ul= document.getElementById("weaknessList_ul");
+const resistantList_ul= document.getElementById("resistantList_ul");
+const eggList_ul= document.getElementById("eggList_ul");
+const typeList= gettingProperties(pokeData, "type");
+const weaknessList= gettingProperties(pokeData, "weakness");
+const resistantList= gettingProperties(pokeData, "resistant");
+const eggList= gettingEgg(pokeData, "egg");
+showProperties(typeList, typeList_ul);
+showProperties(weaknessList, weaknessList_ul);
+showProperties(resistantList, resistantList_ul);
+showProperties(eggList, eggList_ul);
 
-// opciones por debilidad
-const byWeaknessButton= document.getElementById("weaknessButton")
-const byWeaknessOptions= document.getElementById("weaknessOptions");
-const weaknessSort= gettingProperties(pokeData, "weakness");
-console.log(weaknessSort);
-showProperties(weaknessSort, byWeaknessOptions);
-//escoger y fitrar por debilidad
-byWeaknessOptions.addEventListener("change", (event)=>{
-  const selectedOption= event.target.value;
-  console.log(`ejecutando por debilidad ${event.target.value}...`);
-  const allOptionBy= filterProperties(pokeData, "weakness", selectedOption);
-  pokemonsMainDiv.innerHTML =showPokemonsDiv(allOptionBy);
-      })
+//--------------------------------------------------------------/
+//---------------- SHOW CARDS BY FILTERS  ----------------------/
+//------------------------------------------------------------/
+  const bottonFilter = document.querySelectorAll('.bottonFilter');
 
-// opciones por resistencia
-const byResistantButton= document.getElementById("resistantButton");
-const byResistantOptions=document.getElementById("resistantOptions");
-const resistantSort= gettingProperties(pokeData, "resistant");
-console.log(resistantSort);
-showProperties(resistantSort, byResistantOptions);
-//escoger y fitrar por resistencia
-byResistantOptions.addEventListener("change", (event)=>{
-  const selectedOption= event.target.value;
-  console.log(`ejecutando por resistencia ${event.target.value}...`);
-  const allOptionBy= filterProperties(pokeData, "resistant", selectedOption);
-  pokemonsMainDiv.innerHTML =showPokemonsDiv(allOptionBy);
-      })
-
-// opiones por huevo
-const byEggButton= document.getElementById("eggButton");
-const byEggOptions=document.getElementById("eggOptions");
-const eggsSort = gettingEgg(pokeData, "egg")
-console.log(eggsSort)
-showProperties(eggsSort, byEggOptions);
-//escoger y fitrar por resistencia
-byEggOptions.addEventListener("change", (event)=>{
-  const selectedOption= event.target.value;
-  console.log(`ejecutando por huevo ${event.target.value}...`);
-  const allOptionBy= filterProperties(pokeData, "egg", selectedOption);
-  pokemonsMainDiv.innerHTML =showPokemonsDiv(allOptionBy);
-      })
-
+  bottonFilter.forEach(item =>
+  {
+    const oneProperty = item.id;
+    const property = item.name;
+    item.addEventListener('click', () =>{
+      const pokemonFiltered= filterProperties(pokeData, property, oneProperty);
+      pokemonsMainDiv.innerHTML = showPokemonsDiv(pokemonFiltered);
+      showBackCard();
+    });
+  }
+  );
 //--------------------------------------------------------------/
 //------------------- SHOW BACKCARD  --------------------------/
 //------------------------------------------------------------/
