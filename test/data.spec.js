@@ -200,7 +200,7 @@ describe('gettingEgg', () =>{
     expect(typeof gettingEgg).toBe('function')
   });
   it('recibe data y devuelve las propiedades por item', () => {
-    expect(gettingProperties(data2,"egg")).toEqual(eggspc);
+    expect(gettingEgg(data2,"egg")).toEqual(eggspc);
   });
 });
 
@@ -237,7 +237,7 @@ describe('filterProperties', () =>{
     expect(typeof filterProperties). toBe('function')
   })
   it('recibe data y devuelve las propiedades por item', () => {
-    expect(gettingProperties(data2,"resistant","grass")).toEqual(oneProp);
+    expect(filterProperties(data2,"resistant","grass")).toEqual(oneProp);
   });
 })
 
