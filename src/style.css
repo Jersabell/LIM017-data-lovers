@@ -157,16 +157,16 @@ nav ul li ul li a:hover{
 
   /* MAIN: ORDENAR POR */
 .main-div__Ordenar {
-  width: 22%;
+  width: 100%;
   height: auto;
-  text-align: left;
-  align-self: flex-start;
-  margin-left: 6%;
-  margin-top: 50px;
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .main-div__button-ordenar {
-  width: 100%;
+  width: 22%;
   background-color: #1B588F;
   height: 40px;
   border-radius: 5px;
@@ -174,10 +174,9 @@ nav ul li ul li a:hover{
   font-family: Roboto;
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  /* line-height: 33px; */
   color: #FFFFFF;
   cursor: pointer;
+  margin-right: 5%;
 }
 
 .main-div__button-ordenar:hover {
@@ -191,10 +190,11 @@ nav ul li ul li a:hover{
 
 .main-div__button-despliegue {
   transition: max-height .5s ease-out;
-  max-height: 80%;
+  width: 22%;
   overflow: hidden;
   margin-top: -2px;
   background-color: #1B588F;
+  margin-right: 5%;
 }
 
 .list-order {
@@ -209,7 +209,6 @@ nav ul li ul li a:hover{
   cursor: pointer;
   background: rgba(0, 0, 0, 0.2);
 }
-
   /*MAIN: TARJETAS DE POKEMONES */
   .main__div-Characteres {
     width: 95%;
