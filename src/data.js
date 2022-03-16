@@ -10,10 +10,10 @@ export const getPokemons = (data) => {
       'weakness': data[i].weaknesses,
       'resistant': data[i].resistant,
       'egg': data[i].egg,
-      'height': data[i].size.height,
-      'weight': data[i].size.weight,
-      'candy': data[i].candy,
-      'candyCount': data[i].candy_count,
+      // 'height': data[i].size.height,
+      // 'weight': data[i].size.weight,
+      // 'candy': data[i].candy,
+      // 'candyCount': data[i].candy_count,
       'generation' :data[i].generation.name.toUpperCase(),
     });
   }
@@ -65,10 +65,29 @@ export const gettingEgg = (pokeData, propiedad) => {
 
 // FILTRA POKEMONES QUE TENGA UNA DETERMINADA PROPIEDAD
 export const filterProperties = (pokeData, property, oneProperty) => {
-  return pokeData.filter(objeto => objeto[property].indexOf(oneProperty) > -1)
+  const result = pokeData.filter(objeto => objeto[property].indexOf(oneProperty) > -1)
+  return result;
 }
 // compute o calcular, nos permitirá hacer cálculos estadísticos básicos para ser mostrados de acuerdo a la data proporcionada.
-export const computeStats = () => {
-  return 'computeStats';
-};
 //import pok from './data/pokemon/pokemon.js'
+//--------------------------------------------------------------/
+//---------------- SHOW CARDS BY FILTERS  ----------------------/
+//------------------------------------------------------------/
+
+  export const computeStats = () => {
+  const bottonFilter = document.querySelectorAll('.bottonFilter');
+  console.log(bottonFilter);
+};
+  //computeStats()
+  // bottonFilter.forEach(item =>
+  // {
+  //   const oneProperty = item.id;
+  //   const property = item.name;
+  //   //console.log(property, oneProperty);
+  //     const pokemonFiltered= filterProperties(pokeData, property, oneProperty);
+  //     console.log(property + ": "+ oneProperty + ": "+pokemonFiltered.length);
+  //     console.log("Porcentaje: "+ (pokemonFiltered.length * 100)/251);
+  //     pokemonsMainDiv.innerHTML = showPokemonsDiv(pokemonFiltered);
+  //     showBackCard();
+  // }
+  // );

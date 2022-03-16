@@ -104,11 +104,13 @@ descendentBTN.addEventListener("click", () => {
   pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData2);
   showBackCard();
 })
-//....................... BUSQUEDA AVANZADA  ......................................
+//....................... BUSQUEDA AVANZADA FILTROS/ ......................................
 const showProperties = (propertyList_li, property_ul)=>{
   let allPropertyList = '';
   //console.log(property_ul);
   const name = property_ul.className;
+  // console.log(name + ": "+ propertyList_li.length);
+  // console.log("Porcentaje: "+ (propertyList_li.length * 100)/251);
   //console.log(name);
     for (let i = 0; i < propertyList_li.length; i++){
       let eachOne =
@@ -139,8 +141,29 @@ showProperties(eggList, eggList_ul);
   {
     const oneProperty = item.id;
     const property = item.name;
+    //console.log(property, oneProperty);
     item.addEventListener('click', () =>{
+
       const pokemonFiltered= filterProperties(pokeData, property, oneProperty);
+      console.log(property + ": "+ oneProperty + ": "+pokemonFiltered.length);
+      console.log("Porcentaje: "+ (pokemonFiltered.length * 100)/251);
+
+              // VISTA DE INFORMACIÓN
+      let htmlInfo = `<div class="titleFilter">
+        <p id="p_propertyAndOption"></p>
+      </div>
+      <div class="infoDetailed">
+        <p id="p_InfoDetailed">HOLA</p>
+      </div>`;
+      const textHTML = document.getElementById('div_statsInformation');
+      textHTML.innerHTML = htmlInfo;
+
+      const propertyAndOption = document.getElementById('p_propertyAndOption');
+      propertyAndOption.innerHTML = property.toUpperCase() + ": "+ oneProperty.toUpperCase() ;
+
+      const InfoDetailed = document.getElementById('p_InfoDetailed');
+      InfoDetailed.innerHTML = "There are " + pokemonFiltered.length + " Pokemons, that represent " + Math.round((pokemonFiltered.length * 100)/251) + "%";
+
       pokemonsMainDiv.innerHTML = showPokemonsDiv(pokemonFiltered);
       showBackCard();
     });
