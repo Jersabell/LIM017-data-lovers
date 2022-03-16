@@ -1,4 +1,4 @@
-import {getPokemons, filterData, sortNameAZ, gettingProperties, gettingEgg, filterProperties, crearVariosParrafos} from './data.js';
+import {getPokemons, filterData, sortNameAZ, gettingProperties, gettingEgg, filterProperties} from './data.js';
 import data from './data/pokemon/pokemon.js';
 const pokemonsMainDiv = document.getElementById('main__div-Characteres');
 // DATA VARIABLES funcion -- // pokemonNew, filterProperties
@@ -48,6 +48,16 @@ const showPokemonsDiv = (pokeData) => {
   }
   return showAll;
 }
+// FUNCION PARA LA INFORMACION DEL BACKCARD
+function crearVariosParrafos(datos){
+  let almacenar=[]
+  for(let i=0;i<datos.length;i++){
+    const uno=`<p class="etiquetadelBack">${datos[i]}</p>`;
+    almacenar += uno
+  }
+  return almacenar
+}
+
 pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData);
 showBackCard();
 //-------------------------------------------------------------/
@@ -59,6 +69,7 @@ inputName.addEventListener('input', event => {
   const nameFiltered = filterData(pokeData, event.target.value.toUpperCase());
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameFiltered);
   showBackCard();
+  textHTML.innerHTML="";
 });
 
 // --------------------------/
@@ -66,21 +77,34 @@ inputName.addEventListener('input', event => {
 // ------------------------/
 const desplegableBTN = document.getElementById("desplegar");
 const botonOrdenar = document.getElementById("ordenar");
+const botonOrdenar1 = document.getElementById("ordenar1")
 botonOrdenar.addEventListener("click", ()=>{
+  botonOrdenar.setAttribute("hidden", true);
+  botonOrdenar1.removeAttribute("hidden");
   desplegableBTN.removeAttribute("hidden");
   showBackCard();
 })
+botonOrdenar1.addEventListener("click", ()=>{
+  botonOrdenar.removeAttribute("hidden");
+  botonOrdenar1.setAttribute("hidden", true);
+  desplegableBTN.setAttribute("hidden", true);
+})
 desplegableBTN.addEventListener("mouseleave",()=>{
   desplegableBTN.setAttribute("hidden", true)
+  botonOrdenar1.setAttribute("hidden", true);
+  botonOrdenar.removeAttribute("hidden");
 })
 // ....................... SORT FROM A TO Z ......................................
+const textHTML = document.getElementById('div_statsInformation');
 const botton_AZ = document.getElementById("A-Z_sort");
 botton_AZ.addEventListener("click",()=>{
   desplegableBTN.setAttribute("hidden", true);
   const nameSorted = sortNameAZ(pokeData);
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameSorted);
   showBackCard();
+  textHTML.innerHTML="";
 })
+
 // ....................... SORT FROM Z TO A ......................................
 const botton_ZA = document.getElementById("Z-A_sort");
 botton_ZA.addEventListener("click",()=>{
@@ -88,6 +112,7 @@ botton_ZA.addEventListener("click",()=>{
   const nameSorted = (sortNameAZ(pokeData)).reverse();
   pokemonsMainDiv.innerHTML = showPokemonsDiv(nameSorted);
   showBackCard();
+  textHTML.innerHTML="";
 })
 //....................... SORT ASCENDENT ......................................
 const ascendent = document.getElementById("menor-mayor");
@@ -95,6 +120,7 @@ ascendent.addEventListener("click", () => {
   desplegableBTN.setAttribute("hidden", true);
   pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData1);
   showBackCard();
+  textHTML.innerHTML="";
 })
 
 // ....................... SORT DESCENDENT ......................................
@@ -103,6 +129,7 @@ descendentBTN.addEventListener("click", () => {
   desplegableBTN.setAttribute("hidden", true);
   pokemonsMainDiv.innerHTML = showPokemonsDiv(pokeData2);
   showBackCard();
+  textHTML.innerHTML="";
 })
 //....................... BUSQUEDA AVANZADA FILTROS/ ......................................
 const showProperties = (propertyList_li, property_ul)=>{
@@ -149,8 +176,10 @@ showProperties(eggList, eggList_ul);
       console.log("Porcentaje: "+ (pokemonFiltered.length * 100)/251);
 
               // VISTA DE INFORMACIÓN
-      let htmlInfo = `<div class="titleFilter">
-        <p id="p_propertyAndOption"></p>
+      let htmlInfo = 
+      `
+      <div class="titleFilter">
+        <p class="titleFilter__p" id="p_propertyAndOption"></p>
       </div>
       <div class="infoDetailed">
         <p id="p_InfoDetailed">HOLA</p>
@@ -162,7 +191,7 @@ showProperties(eggList, eggList_ul);
       propertyAndOption.innerHTML = property.toUpperCase() + ": "+ oneProperty.toUpperCase() ;
 
       const InfoDetailed = document.getElementById('p_InfoDetailed');
-      InfoDetailed.innerHTML = "There are " + pokemonFiltered.length + " Pokemons, that represent " + Math.round((pokemonFiltered.length * 100)/251) + "%";
+      InfoDetailed.innerHTML = "There are " + pokemonFiltered.length + " Pokemons, that represent " + Math.round((pokemonFiltered.length * 100)/251) + "%.";
 
       pokemonsMainDiv.innerHTML = showPokemonsDiv(pokemonFiltered);
       showBackCard();

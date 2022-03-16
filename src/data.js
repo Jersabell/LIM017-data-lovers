@@ -19,15 +19,6 @@ export const getPokemons = (data) => {
   }
   return onePokemon;
 }
-// FUNCION PARA LA INFORMACION DEL BACKCARD
-export function crearVariosParrafos(datos){
-  let almacenar=[]
-  for(let i=0;i<datos.length;i++){
-    const uno=`<p class="etiquetadelBack">${datos[i]}</p>`;
-    almacenar += uno
-  }
-  return almacenar
-}
 
 //----------------- FUNCION PARA BUSCAR POR NOMBRE--------------------------------
 export const filterData = (pokeData, busqueda) => {
@@ -74,10 +65,10 @@ export const filterProperties = (pokeData, property, oneProperty) => {
 //---------------- SHOW CARDS BY FILTERS  ----------------------/
 //------------------------------------------------------------/
 
-  export const computeStats = () => {
-  const bottonFilter = document.querySelectorAll('.bottonFilter');
-  console.log(bottonFilter);
-};
+  // export const computeStats = () => {
+  // const bottonFilter = document.querySelectorAll('.bottonFilter');
+  // console.log(bottonFilter);
+// };
   //computeStats()
   // bottonFilter.forEach(item =>
   // {
