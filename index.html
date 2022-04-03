@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Lovers - Pokemones</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" href="imágenes/pokemon-icono.ico"> <!-- Para el ícono de la página web -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@100&display=swap" rel="stylesheet">
+    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1"> <!-- /para el responsive -->
+  </head>
+  <body>
+    <header class="header">
+      <img class="header-img__background" src="imágenes/header.jpg">
+      <img class="header-img__icono" src="imágenes/header-icono.png" alt="Pokemon">
+      <input class="header__input" id="inputName" type="text" placeholder="Search for name ...">
+    </header>
+
+    <main class="main">
+      <img class="main__img-front" src="imágenes/poke-portada1.jpg" alt="Pokemon Portada">
+
+      <!-- BUSQUEDA AVANZADA-->
+      <div class="containerFiltros">
+        <div class="menuFiltros_div">
+          <nav class="menuFiltros_nav">
+            <ul>
+              <li><a>TYPE</a>
+                <ul class="type" id="typeList_ul"></ul>
+              </li>
+              <li><a>WEAKNESS</a>
+                <ul class="weakness" id="weaknessList_ul"></ul>
+              </li>
+              <li><a>RESISTANCE</a>
+                <ul class="resistant" id="resistantList_ul"></ul>
+              </li>
+              <li><a>EGGS</a>
+                <ul class="egg" id="eggList_ul"></ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- ORDENAR POR -->
+      <div class="main-div__Ordenar">
+        <button class="main-div__button-ordenar" id="ordenar">SORT<i class="fa-solid fa-circle-chevron-down" id="iconsmall"></i></button>
+        <button class="main-div__button-ordenar" id="ordenar1" hidden="">SORT<i class="fa-solid fa-circle-chevron-up" id="iconsmall1"></i></button>
+        <div class="main-div__button-despliegue" id="desplegar" hidden="">
+          <ul>
+            <li class="list-order" id="A-Z_sort">Ascendent A-Z</li>
+            <li class="list-order" id="Z-A_sort">Descendent Z-A</li>
+            <li class="list-order" id="menor-mayor">Ascendent by number</li>
+            <li class="list-order" id="mayor_menor">Descendent by number</li>
+          </ul>
+        </div>
+      </div>
+        <!-- VISTA DE INFORMACIÓN ESTADÍSTICA -->
+      <div class="main__div__stats" id="div_statsInformation">
+        
+      </div>
+
+        <!-- VISTA DE LOS POKEMONES -->
+      <div class="main__div-Characteres" id="main__div-Characteres">
+        <!-- AQUI DEBE ESTAR EL DIV DEL MAIN.JS -->
+      </div>
+    </main>
+
+    <footer class="footer">
+      <img class="footer__img-background" src="imágenes/footer.jpg">
+      <img class="footer__img-Icono" src="imágenes/header-icono.png" alt="">
+      <p class="footer__p-CopyR">©All Rights Reserved.</p>
+      <p class="footer__p-Social">Follow us on our socia media:<br>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </p>
+    </footer>
+    <script src="main.js" type="module"></script>
+    <script src="data/pokemon/pokemon.js" type="module"></script>
+  </body>
+</html>
